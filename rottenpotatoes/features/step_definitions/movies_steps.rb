@@ -7,7 +7,8 @@ Given /the following movies exist/ do |movies_table|
     # you should arrange to add that movie to the database here.
     new_movie = Movie.new( :title => movie["title"], 
                              :rating => movie["rating"],
-                             :release_date => movie["release_date"])
+                             :release_date => movie["release_date"],
+                             :director => movie["director"])
     new_movie.save!
   end
 end
@@ -50,3 +51,7 @@ Then /I should see all the movies/ do
   #puts all("table/tbody/tr")
   Movie.count.should == all("table/tbody/tr").count
 end
+
+Then /the director of "(.*)" should be "(.*)"/ do |t1, d1|
+  Movie.find_by_title(t1).director.should == d1
+end 
