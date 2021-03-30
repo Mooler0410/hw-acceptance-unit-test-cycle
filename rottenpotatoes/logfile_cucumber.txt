@@ -20,18 +20,6 @@ Feature: display list of movies filtered by MPAA rating
     And I am on the RottenPotatoes home page     # features/step_definitions/web_steps.rb:44
     Then 10 seed movies should exist             # features/step_definitions/movies_steps.rb:16
 
-      expected #<Integer:21> => 10
-           got #<Integer:51> => 25
-
-      Compared using equal?, which compares object identity,
-      but expected and actual are not the same object. Use
-      `expect(actual).to eq(expected)` if you don't care about
-      object identity in this example.
-
-       (RSpec::Expectations::ExpectationNotMetError)
-      ./features/step_definitions/movies_steps.rb:17:in `/(.*) seed movies should exist/'
-      features/filter_movie_list.feature:23:in `Then 10 seed movies should exist'
-
   Scenario: restrict to movies with 'PG' or 'R' ratings # features/filter_movie_list.feature:25
     When I check the following ratings: PG,R            # features/step_definitions/movies_steps.rb:33
     And I uncheck the following ratings: PG-13,G        # features/step_definitions/movies_steps.rb:33
@@ -105,18 +93,6 @@ Feature: display list of movies sorted by different criteria
     And I am on the RottenPotatoes home page     # features/step_definitions/web_steps.rb:44
     Then 10 seed movies should exist             # features/step_definitions/movies_steps.rb:16
 
-      expected #<Integer:21> => 10
-           got #<Integer:51> => 25
-
-      Compared using equal?, which compares object identity,
-      but expected and actual are not the same object. Use
-      `expect(actual).to eq(expected)` if you don't care about
-      object identity in this example.
-
-       (RSpec::Expectations::ExpectationNotMetError)
-      ./features/step_definitions/movies_steps.rb:17:in `/(.*) seed movies should exist/'
-      features/sort_movie_list.feature:23:in `Then 10 seed movies should exist'
-
   Scenario: sort movies alphabetically           # features/sort_movie_list.feature:25
     When I follow "Movie Title"                  # features/step_definitions/web_steps.rb:56
     Then I should see "Aladdin" before "Amelie"  # features/step_definitions/movies_steps.rb:23
@@ -127,13 +103,7 @@ Feature: display list of movies sorted by different criteria
     Then I should see "2001: A Space Odyssey" before "The Help" # features/step_definitions/movies_steps.rb:23
     Then I should see "Chocolat" before "Amelie"                # features/step_definitions/movies_steps.rb:23
 
-Failing Scenarios:
-cucumber features/filter_movie_list.feature:25 # Scenario: restrict to movies with 'PG' or 'R' ratings
-cucumber features/filter_movie_list.feature:39 # Scenario: all ratings selected
-cucumber features/sort_movie_list.feature:25 # Scenario: sort movies alphabetically
-cucumber features/sort_movie_list.feature:30 # Scenario: sort movies in increasing order of release date
-
-7 scenarios (4 failed, 3 passed)
-44 steps (4 failed, 15 skipped, 25 passed)
-0m0.825s
-Coverage report generated for Cucumber Features, RSpec to /home/ec2-user/environment/hw-acceptance-unit-test-cycle/rottenpotatoes/coverage. 52 / 59 LOC (88.14%) covered.
+7 scenarios (7 passed)
+44 steps (44 passed)
+0m0.876s
+Coverage report generated for Cucumber Features to /home/ec2-user/environment/hw-acceptance-unit-test-cycle/rottenpotatoes/coverage. 50 / 59 LOC (84.75%) covered.
